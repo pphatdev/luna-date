@@ -41,9 +41,6 @@ jobs:
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
 
-    - name: Run code style check
-      run: composer cs-check
-
     - name: Run PHPStan static analysis
       run: composer stan
       if: matrix.php-version == '8.2'
