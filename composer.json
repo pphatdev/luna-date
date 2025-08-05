@@ -46,9 +46,6 @@
     "scripts": {
         "test": "phpunit",
         "test:coverage": "phpunit --coverage-html coverage",
-        "cs-check": "phpcs --standard=PSR12 src/ tests/",
-        "cs-fix": "phpcbf --standard=PSR12 src/ tests/",
-        "stan": "phpstan analyse src/ --level=8",
         "quality": [
             "@cs-check",
             "@stan",
