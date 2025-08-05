@@ -1,0 +1,12 @@
+parameters:
+    level: 8
+    paths:
+        - src
+        - tests
+    bootstrapFiles:
+        - vendor/autoload.php
+    ignoreErrors:
+        # Ignore specific issues if needed
+        # - '#Call to an undefined method#'
+    checkMissingIterableValueType: false
+    checkGenericClassInNonGenericObjectType: false

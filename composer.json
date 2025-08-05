@@ -1,0 +1,64 @@
+{
+    "name": "pphatdev/luna-date",
+    "description": "A PHP library for converting Gregorian dates to Khmer (Cambodian) calendar dates and vice versa, inspired by momentkh",
+    "type": "library",
+    "keywords": [
+        "php",
+        "date",
+        "khmer",
+        "cambodian",
+        "calendar",
+        "conversion",
+        "datetime",
+        "buddhist-era",
+        "lunar",
+        "solar"
+    ],
+    "homepage": "https://github.com/pphatdev/luna",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "pphatdev",
+            "email": "pphatdev@example.com",
+            "homepage": "https://github.com/pphatdev",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7.4"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "squizlabs/php_codesniffer": "^3.5",
+        "phpstan/phpstan": "^1.0",
+        "rector/rector": "^0.18"
+    },
+    "autoload": {
+        "psr-4": {
+            "PPhatDev\\LunaDate\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "PPhatDev\\LunaDate\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test:coverage": "phpunit --coverage-html coverage",
+        "cs-check": "phpcs --standard=PSR12 src/ tests/",
+        "cs-fix": "phpcbf --standard=PSR12 src/ tests/",
+        "stan": "phpstan analyse src/ --level=8",
+        "quality": [
+            "@cs-check",
+            "@stan",
+            "@test"
+        ]
+    },
+    "config": {
+        "optimize-autoloader": true,
+        "sort-packages": true
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
