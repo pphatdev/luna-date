@@ -160,6 +160,8 @@ class KhmerFormatter
     {
         $moonDay = KhmerCalculator::getKhmerLunarDay($day);
         $beYear = KhmerCalculator::getBEYear($dateTime);
+        $animalYear = KhmerCalculator::getAnimalYear($dateTime);
+        $eraYears = KhmerCalculator::getJolakSakarajYear($dateTime) % 10;
 
         $tokens = [
             'W' => self::KHMER_DAYS[$dayOfWeek], // Day of week
@@ -170,8 +172,8 @@ class KhmerFormatter
             'N' => $moonDay['moonStatus'] === 0 ? 'កើត' : 'រោច', // Moon status full
             'm' => self::LUNAR_MONTHS[$month] ?? '', // Lunar month
             'M' => self::KHMER_MONTHS[(int)$dateTime->format('n')] ?? '', // Solar month
-            'a' => $this->getAnimalYear($beYear), // Animal year
-            'e' => $this->getEraYear($beYear), // Era year
+            'a' => Constants::ANIMAL_YEARS[$animalYear] ?? '',
+            'e' => Constants::ERA_YEARS[$eraYears] ?? '',
             'b' => $this->toKhmerNumber((string)$beYear), // Buddhist Era year
             'c' => $this->toKhmerNumber($dateTime->format('Y')), // Gregorian year
             'j' => $this->toKhmerNumber((string)KhmerCalculator::getJolakSakarajYear($dateTime)), // Jolak Sakaraj year
