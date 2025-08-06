@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PPhatDev\LunaDate\Tests;
+namespace PPhatDev\LunarDate\Tests;
 
 use PHPUnit\Framework\TestCase;
-use PPhatDev\LunaDate\Constants;
+use PPhatDev\LunarDate\Constants;
 
 /**
  * Test suite for Constants class

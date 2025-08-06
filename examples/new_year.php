@@ -1,7 +1,7 @@
 <?php
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use PPhatDev\LunaDate\KhmerDate;
+use PPhatDev\LunarDate\KhmerDate;
 
 echo "Khmer New Year Examples:\n";
 

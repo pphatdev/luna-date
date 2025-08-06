@@ -2,7 +2,7 @@
 
 // declare(strict_types=1);
 
-namespace PPhatDev\LunaDate;
+namespace PPhatDev\LunarDate;
 
 /**
  * Constants used throughout the Khmer calendar system
@@ -12,7 +12,7 @@ namespace PPhatDev\LunaDate;
  * Ported from momentkh JavaScript library.
  *
  * @author PPhatDev
- * @package PPhatDev\LunaDate
+ * @package PPhatDev\LunarDate
  * @since 1.0.0
  */
 final class Constants

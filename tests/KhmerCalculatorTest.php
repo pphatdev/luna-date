@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace PPhatDev\LunaDate\Tests;
+namespace PPhatDev\LunarDate\Tests;
 
 use PHPUnit\Framework\TestCase;
-use PPhatDev\LunaDate\KhmerCalculator;
-use PPhatDev\LunaDate\Constants;
+use PPhatDev\LunarDate\KhmerCalculator;
+use PPhatDev\LunarDate\Constants;
 use DateTime;
 use InvalidArgumentException;
 use RuntimeException;

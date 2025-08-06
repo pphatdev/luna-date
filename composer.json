@@ -1,5 +1,5 @@
 {
-    "name": "pphatdev/luna-date",
+    "name": "pphatdev/lunar-date",
     "description": "A PHP library for converting Gregorian dates to Khmer (Cambodian) calendar dates and vice versa, inspired by momentkh",
     "type": "library",
     "keywords": [
@@ -35,12 +35,12 @@
     },
     "autoload": {
         "psr-4": {
-            "PPhatDev\\LunaDate\\": "src/"
+            "PPhatDev\\LunarDate\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "PPhatDev\\LunaDate\\Tests\\": "tests/"
+            "PPhatDev\\LunarDate\\Tests\\": "tests/"
         }
     },
     "scripts": {

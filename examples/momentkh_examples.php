@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use PPhatDev\LunaDate\KhmerDate;
+use PPhatDev\LunarDate\KhmerDate;
 
 /**
  * Example usage similar to the original momentkh JavaScript examples
@@ -19,7 +19,7 @@ echo "console.log(today.toLunarDate());\n\n";
 
 echo "PHP Equivalent:\n";
 $today = new KhmerDate();
-echo "use PPhatDev\\LunaDate\\KhmerDate;\n";
+echo "use PPhatDev\\LunarDate\\KhmerDate;\n";
 echo "\$today = new KhmerDate();\n";
 echo "echo \$today->toLunarDate();\n";
 echo "// Output: " . $today->toLunarDate() . "\n\n";

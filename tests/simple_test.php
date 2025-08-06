@@ -2,10 +2,10 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use PPhatDev\LunaDate\KhmerDate;
-use PPhatDev\LunaDate\Constants;
-use PPhatDev\LunaDate\KhmerCalculator;
-use PPhatDev\LunaDate\Utils;
+use PPhatDev\LunarDate\KhmerDate;
+use PPhatDev\LunarDate\Constants;
+use PPhatDev\LunarDate\KhmerCalculator;
+use PPhatDev\LunarDate\Utils;
 
 /**
  * Simple test runner for basic functionality

@@ -1,11 +1,11 @@
 <?php
 
-namespace PPhatDev\LunaDate\Tests;
+namespace PPhatDev\LunarDate\Tests;
 
 use PHPUnit\Framework\TestCase;
-use PPhatDev\LunaDate\KhmerDate;
-use PPhatDev\LunaDate\Constants;
-use PPhatDev\LunaDate\KhmerCalculator;
+use PPhatDev\LunarDate\KhmerDate;
+use PPhatDev\LunarDate\Constants;
+use PPhatDev\LunarDate\KhmerCalculator;
 use DateTime;
 
 class KhmerDateTest extends TestCase

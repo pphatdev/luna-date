@@ -2,7 +2,7 @@
 
 // declare(strict_types=1);
 
-namespace PPhatDev\LunaDate;
+namespace PPhatDev\LunarDate;
 
 use DateTime;
 use InvalidArgumentException;
@@ -16,7 +16,7 @@ use RuntimeException;
  * Ported from momentkh JavaScript library.
  *
  * @author PPhatDev
- * @package PPhatDev\LunaDate
+ * @package PPhatDev\LunarDate
  * @since 1.0.0
  */
 final class KhmerCalculator

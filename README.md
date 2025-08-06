@@ -1,6 +1,6 @@
 # Luna Date - PHP Khmer Calendar Library
 
-[![CI](https://github.com/pphatdev/luna-date/actions/workflows/ci.yml/badge.svg)](https://github.com/pphatdev/luna-date/actions/workflows/ci.yml)
+[![CI](https://github.com/pphatdev/lunar-date/actions/workflows/ci.yml/badge.svg)](https://github.com/pphatdev/lunar-date/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PHP Version](https://img.shields.io/badge/PHP-%3E%3D7.4-blue.svg)](https://php.net)
 [![codecov](https://codecov.io/gh/pphatdev/luna/branch/main/graph/badge.svg)](https://codecov.io/gh/pphatdev/luna)
@@ -34,7 +34,7 @@ A comprehensive PHP library for converting between Gregorian and Khmer (Cambodia
 Install via Composer:
 
 ```bash
-composer require pphatdev/luna-date
+composer require pphatdev/lunar-date
 ```
 
 ## Quick Start
@@ -43,7 +43,7 @@ composer require pphatdev/luna-date
 <?php
 require_once 'vendor/autoload.php';
 
-use PPhatDev\LunaDate\KhmerDate;
+use PPhatDev\LunarDate\KhmerDate;
 
 // Create Khmer date from current time
 $today = new KhmerDate();
@@ -185,7 +185,7 @@ $eraYears = KhmerDate::getEraYearNames();
 ### Utility Functions
 
 ```php
-use PPhatDev\LunaDate\Utils;
+use PPhatDev\LunarDate\Utils;
 
 // Get Buddhist holidays for a year
 $holidays = Utils::getBuddhistHolidays(2024);
@@ -226,9 +226,9 @@ console.log(birthday.toLunarDate('dN ថ្ងៃW ខែm ព.ស. b'));
 console.log(moment.getKhNewYearMoment(2024));
 ```
 
-### PHP (luna-date)
+### PHP (lunar-date)
 ```php
-use PPhatDev\LunaDate\KhmerDate;
+use PPhatDev\LunarDate\KhmerDate;
 
 $today = new KhmerDate();
 echo $today->toLunarDate();

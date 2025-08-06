@@ -1,6 +1,6 @@
 <?php
 
-namespace PPhatDev\LunaDate;
+namespace PPhatDev\LunarDate;
 
 /**
  * Soriyatra Lerng Sak calculations for Khmer New Year

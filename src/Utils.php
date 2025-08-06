@@ -1,6 +1,6 @@
 <?php
 
-namespace PPhatDev\LunaDate;
+namespace PPhatDev\LunarDate;
 
 use DateTime;
 

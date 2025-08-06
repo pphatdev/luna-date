@@ -2,8 +2,8 @@
 
 require_once __DIR__ . '/../vendor/autoload.php';
 
-use PPhatDev\LunaDate\KhmerDate;
-use PPhatDev\LunaDate\Utils;
+use PPhatDev\LunarDate\KhmerDate;
+use PPhatDev\LunarDate\Utils;
 
 echo "=== Luna Date PHP Demo ===\n\n";
 
