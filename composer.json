@@ -14,13 +14,19 @@
         "lunar",
         "solar"
     ],
-    "homepage": "https://github.com/pphatdev/luna",
+    "homepage": "https://github.com/pphatdev/lunar-date",
     "license": "MIT",
     "authors": [
         {
-            "name": "pphatdev",
-            "email": "pphatdev@example.com",
+            "name": "PPhatDev",
+            "email": "info.sophat@gmail.com",
             "homepage": "https://github.com/pphatdev",
+            "role": "Developer"
+        },
+        {
+            "name": "SmartERP Dev",
+            "email": "front-end.01@turbotech.com",
+            "homepage": "https://github.com/turbotechlabs",
             "role": "Developer"
         }
     ],

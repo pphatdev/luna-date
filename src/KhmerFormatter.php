@@ -188,25 +188,6 @@ class KhmerFormatter
         return $result;
     }
 
-    /**
-     * Get animal year name
-     */
-    private function getAnimalYear(int $beYear): string
-    {
-        $animalYears = Constants::ANIMAL_YEARS;
-        $index = ($beYear - 1) % 12;
-        return $animalYears[$index] ?? '';
-    }
-
-    /**
-     * Get era year name
-     */
-    private function getEraYear(int $beYear): string
-    {
-        $eraYears = Constants::ERA_YEARS;
-        $index = ($beYear - 1) % 10;
-        return $eraYears[$index] ?? '';
-    }
 
     /**
      * Get full lunar format
