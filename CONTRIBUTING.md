@@ -5,7 +5,7 @@ Thank you for your interest in contributing to Lunar Date! This guide will help 
 ## Development Setup
 
 1. Fork the repository
-2. Clone your fork: `git clone https://github.com/yourusername/luna.git`
+2. Clone your fork: `git clone https://github.com/pphatdev/lunar-date.git`
 3. Install dependencies: `composer install`
 4. Create a feature branch: `git checkout -b feature/your-feature-name`
 
