@@ -1,6 +1,6 @@
 <?php
 
-namespace PPhatDev\LunaDate;
+namespace PPhatDev\LunarDate;
 
 use DateTime;
 use DateTimeZone;
@@ -240,9 +240,12 @@ class KhmerDate
 
         // Replace placeholders with actual values
         return strtr($format, [
-            '{day}' => $formatter->toKhmerNumber($this->khDay()),
-            '{month}' => array_keys(Constants::SOLAR_MONTHS)[$this->khMonth() - 1] ?? '',
+            '{day}' => $formatter->toKhmerNumber($dateTime->format('d')),
+            '{month}' => array_keys(Constants::SOLAR_MONTHS)[$dateTime->format('m') - 1] ?? '',
             '{year}' => $formatter->toKhmerNumber($dateTime->format('Y')),
+            '{dayOfWeek}' => $formatter->toKhmerNumber($dateTime->format('w')),
+            '{dayOfWeekKhmer}' => Constants::WEEKDAYS[$dateTime->format('w')] ?? '',
+            '{dayOfWeekShort}' => Constants::WEEKDAYS_SHORT[$dateTime->format('w')] ?? '',
         ]);
     }
 

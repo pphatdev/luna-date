@@ -1,6 +1,6 @@
 <?php
 
-namespace PPhatDev\LunaDate;
+namespace PPhatDev\LunarDate;
 
 use DateTime;
 use InvalidArgumentException;
@@ -21,43 +21,45 @@ class KhmerFormatter
     ];
 
     private const KHMER_MONTHS = [
-        1 => 'មករា',
-        2 => 'កុម្ភៈ',
-        3 => 'មីនា',
-        4 => 'មេសា',
-        5 => 'ឧសភា',
-        6 => 'មិថុនា',
-        7 => 'កក្កដា',
-        8 => 'សីហា',
-        9 => 'កញ្ញា',
-        10 => 'តុលា',
-        11 => 'វិច្ឆិកា',
-        12 => 'ធ្នូ'
+        'មករា',
+        'កុម្ភៈ',
+        'មីនា',
+        'មេសា',
+        'ឧសភា',
+        'មិថុនា',
+        'កក្កដា',
+        'សីហា',
+        'កញ្ញា',
+        'តុលា',
+        'វិច្ឆិកា',
+        'ធ្នូ'
     ];
 
     private const KHMER_DAYS = [
-        0 => 'អាទិត្យ',
-        1 => 'ចន្ទ',
-        2 => 'អង្គារ',
-        3 => 'ពុធ',
-        4 => 'ព្រហស្បតិ៍',
-        5 => 'សុក្រ',
-        6 => 'សៅរ៍'
+        'អាទិត្យ',
+        'ចន្ទ',
+        'អង្គារ',
+        'ពុធ',
+        'ព្រហស្បតិ៍',
+        'សុក្រ',
+        'សៅរ៍'
     ];
 
     private const LUNAR_MONTHS = [
-        1 => 'មិគសិរ',
-        2 => 'បុស្ស',
-        3 => 'មាឃ',
-        4 => 'ផល្គុន',
-        5 => 'ចេត្រ',
-        6 => 'ពិសាខ',
-        7 => 'ជេស្ឋ',
-        8 => 'អាសាឍ',
-        9 => 'ស្រាពណ៍',
-        10 => 'ភទ្របទ',
-        11 => 'អស្សុជ',
-        12 => 'កត្តិក',
+        "មិគសិរ",
+        "បុស្ស",
+        "មាឃ",
+        "ផល្គុន",
+        "ចេត្រ",
+        "ពិសាខ",
+        "ជេស្ឋ",
+        "អាសាឍ",
+        "ស្រាពណ៍",
+        "ភទ្របទ",
+        "អស្សុជ",
+        "កក្ដិក",
+        "បឋមាសាឍ",
+        "ទុតិយាសាឍ",
     ];
 
     /**
@@ -195,7 +197,7 @@ class KhmerFormatter
     }
 
     /**
-     * Get era year name  
+     * Get era year name
      */
     private function getEraYear(int $beYear): string
     {
@@ -211,15 +213,17 @@ class KhmerFormatter
     {
         $moonDay = KhmerCalculator::getKhmerLunarDay($day);
         $beYear = KhmerCalculator::getBEYear($dateTime);
+        $animalYear = KhmerCalculator::getAnimalYear($dateTime);
+        $eraYears = KhmerCalculator::getJolakSakarajYear($dateTime) % 10;
 
         return sprintf(
             'ថ្ងៃ%s %s%s ខែ%s ឆ្នាំ%s %s ពុទ្ធសករាជ %s',
             self::KHMER_DAYS[$dayOfWeek],
             $this->toKhmerNumber((string)$moonDay['count']),
             $moonDay['moonStatus'] === 0 ? 'កើត' : 'រោច',
-            self::LUNAR_MONTHS[$month] ?? 'អញ្ញាត',
-            $this->getAnimalYear($beYear),
-            $this->getEraYear($beYear),
+            self::LUNAR_MONTHS[$month] ?? '',
+            Constants::ANIMAL_YEARS[$animalYear] ?? '',
+            Constants::ERA_YEARS[$eraYears] ?? '',
             $this->toKhmerNumber((string)$beYear)
         );
     }
@@ -235,7 +239,7 @@ class KhmerFormatter
             '%s%s ខែ%s',
             $this->toKhmerNumber((string)$moonDay['count']),
             $moonDay['moonStatus'] === 0 ? 'កើត' : 'រោច',
-            self::LUNAR_MONTHS[$month] ?? 'អញ្ញាត'
+            self::LUNAR_MONTHS[$month] ?? ''
         );
     }
 
@@ -251,7 +255,7 @@ class KhmerFormatter
             '%s%s ខែ%s ព.ស. %s',
             $this->toKhmerNumber((string)$moonDay['count']),
             $moonDay['moonStatus'] === 0 ? 'កើត' : 'រោច',
-            self::LUNAR_MONTHS[$month] ?? 'អញ្ញាត',
+            self::LUNAR_MONTHS[$month] ?? '',
             $this->toKhmerNumber((string)$beYear)
         );
     }
