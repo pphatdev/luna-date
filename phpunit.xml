@@ -12,7 +12,7 @@
          failOnWarning="true"
          verbose="true">
     <testsuites>
-        <testsuite name="Luna Date Test Suite">
+        <testsuite name="Lunar Date Test Suite">
             <directory>tests</directory>
             <exclude>tests/simple_test.php</exclude>
         </testsuite>

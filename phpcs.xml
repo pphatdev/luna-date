@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<ruleset name="Luna Date Coding Standard">
-    <description>Coding standard for Luna Date package</description>
+<ruleset name="Lunar Date Coding Standard">
+    <description>Coding standard for Lunar Date package</description>
 
     <!-- Use PSR-12 as base -->
     <rule ref="PSR12"/>

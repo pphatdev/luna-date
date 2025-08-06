@@ -1,9 +1,8 @@
-# Luna Date - PHP Khmer Calendar Library
+# Lunar Date - PHP Khmer Calendar Library
 
 [![CI](https://github.com/pphatdev/lunar-date/actions/workflows/ci.yml/badge.svg)](https://github.com/pphatdev/lunar-date/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PHP Version](https://img.shields.io/badge/PHP-%3E%3D7.4-blue.svg)](https://php.net)
-[![codecov](https://codecov.io/gh/pphatdev/luna/branch/main/graph/badge.svg)](https://codecov.io/gh/pphatdev/luna)
 
 A comprehensive PHP library for converting between Gregorian and Khmer (Cambodian) calendar dates. This is a faithful port of the popular JavaScript [momentkh](https://github.com/ThyrithSor/momentkh) library by ThyrithSor, now with enhanced PHP best practices and comprehensive testing.
 

@@ -71,7 +71,7 @@ class SimpleTestRunner
     }
 }
 
-echo "=== Luna Date PHP Library Tests ===\n\n";
+echo "=== Lunar Date PHP Library Tests ===\n\n";
 
 $test = new SimpleTestRunner();
 

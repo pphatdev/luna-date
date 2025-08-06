@@ -1,6 +1,6 @@
-# Contributing to Luna Date
+# Contributing to Lunar Date
 
-Thank you for your interest in contributing to Luna Date! This guide will help you get started.
+Thank you for your interest in contributing to Lunar Date! This guide will help you get started.
 
 ## Development Setup
 

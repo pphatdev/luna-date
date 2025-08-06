@@ -5,7 +5,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use PPhatDev\LunarDate\KhmerDate;
 use PPhatDev\LunarDate\Utils;
 
-echo "=== Luna Date PHP Demo ===\n\n";
+echo "=== Lunar Date PHP Demo ===\n\n";
 
 // Basic usage
 echo "1. Basic Date Conversion:\n";
