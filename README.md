@@ -172,11 +172,11 @@ echo KhmerDate::getKhmerNumber(2024);          // ២០២៤
 ```php
 // Get month names
 $lunarMonths = KhmerDate::getKhmerMonthNames();
-// ['មិគសិរ', 'បុស្ស', 'មាឃ', 'ផល្គុន', 'ចេត្រ', 'ពិសាខ', 'ជេស្ឋ', 'អាសាឍ', 'ស្រាពណ៍', 'ភទ្របទ', 'អស្សុជ', 'កក្ដិក', 'បឋមាសាឍ', 'ទុតិយាសាឍ']
+// ['មិគសិរ', 'បុស្ស', 'មាឃ', 'ផល្គុន', 'ចេត្រ', 'ពិសាខ', 'ជេស្ឋ', 'អាសាឍ', 'ស្រាពណ៍', 'ភទ្របទ', 'អស្សុជ', 'កត្តិក', 'បឋមាសាឍ', 'ទុតិយាសាឍ']
 
 // Get animal year names (12-year cycle)
-$animalYears = KhmerDate::getAnimalYearNames();  
-// ['ជូត', 'ឆ្លូវ', 'ខាល', 'ថោះ', 'រោង', 'ម្សាញ់', 'មមី', 'ម្មែ', 'វក', 'រកា', 'ច', 'កុរ']
+$animalYears = KhmerDate::getAnimalYearNames();
+// ['ជូត', 'ឆ្លូវ', 'ខាល', 'ថោះ', 'រោង', 'ម្សាញ់', 'មមី', 'មមែ', 'វក', 'រកា', 'ច', 'កុរ']
 
 // Get era year names (10-year cycle)
 $eraYears = KhmerDate::getEraYearNames();
@@ -196,7 +196,7 @@ foreach ($holidays as $holiday) {
 }
 
 // Season information based on lunar calendar
-$date = new KhmerDate('2024-07-15');  
+$date = new KhmerDate('2024-07-15');
 $season = Utils::getSeason($date);
 echo $season['name'];        // រដូវវស្សា (Rainy Season)
 echo $season['name_en'];     // Rainy Season
@@ -340,7 +340,7 @@ The Khmer calendar is a sophisticated lunisolar system that combines lunar phase
 The Khmer calendar has **14 possible months** per year:
 
 **Regular Months** (12 months):
-- មិគសិរ, បុស្ស, មាឃ, ផល្គុន, ចេត្រ, ពិសាខ, ជេស្ឋ, អាសាឍ, ស្រាពណ៍, ភទ្របទ, អស្សុជ, កក្ដិក
+- មិគសិរ, បុស្ស, មាឃ, ផល្គុន, ចេត្រ, ពិសាខ, ជេស្ឋ, អាសាឍ, ស្រាពណ៍, ភទ្របទ, អស្សុជ, កត្តិក
 
 **Leap Months** (occur in leap years):
 - បឋមាសាឍ (first អាសាឍ)
@@ -353,7 +353,7 @@ Each lunar month follows the moon phases:
 
 #### Year Systems (ឆ្នាំ)
 **Animal Years** (12-year cycle):
-ជូត, ឆ្លូវ, ខាល, ថោះ, រោង, ម្សាញ់, មមី, ម្មែ, វក, រកា, ច, កុរ
+ជូត, ឆ្លូវ, ខាល, ថោះ, រោង, ម្សាញ់, មមី, មមែ, វក, រកា, ច, កុរ
 
 **Era Years** (10-year cycle):
 សំរឹទ្ធិស័ក, ឯកស័ក, ទោស័ក, ត្រីស័ក, ចត្វាស័ក, បញ្ចស័ក, ឆស័ក, សប្តស័ក, អដ្ឋស័ក, នព្វស័ក
