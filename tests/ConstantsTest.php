@@ -31,7 +31,7 @@ class ConstantsTest extends TestCase
             'ស្រាពណ៍',
             'ភទ្របទ',
             'អស្សុជ',
-            'កក្ដិក',
+            'កត្ដិក',
             'បឋមាសាឍ',
             'ទុតិយាសាឍ'
         ];
@@ -46,7 +46,7 @@ class ConstantsTest extends TestCase
         // Test sequential numbering for regular months (0-11)
         $this->assertEquals(0, $lunarMonths['មិគសិរ']);
         $this->assertEquals(1, $lunarMonths['បុស្ស']);
-        $this->assertEquals(11, $lunarMonths['កក្ដិក']);
+        $this->assertEquals(11, $lunarMonths['កត្ដិក']);
 
         // Test leap months have correct indices
         $this->assertEquals(12, $lunarMonths['បឋមាសាឍ']);

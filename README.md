@@ -172,7 +172,7 @@ echo KhmerDate::getKhmerNumber(2024);          // ២០២៤
 ```php
 // Get month names
 $lunarMonths = KhmerDate::getKhmerMonthNames();
-// ['មិគសិរ', 'បុស្ស', 'មាឃ', 'ផល្គុន', 'ចេត្រ', 'ពិសាខ', 'ជេស្ឋ', 'អាសាឍ', 'ស្រាពណ៍', 'ភទ្របទ', 'អស្សុជ', 'កត្តិក', 'បឋមាសាឍ', 'ទុតិយាសាឍ']
+// ['មិគសិរ', 'បុស្ស', 'មាឃ', 'ផល្គុន', 'ចេត្រ', 'ពិសាខ', 'ជេស្ឋ', 'អាសាឍ', 'ស្រាពណ៍', 'ភទ្របទ', 'អស្សុជ', 'កត្ដិក', 'បឋមាសាឍ', 'ទុតិយាសាឍ']
 
 // Get animal year names (12-year cycle)
 $animalYears = KhmerDate::getAnimalYearNames();
@@ -340,7 +340,7 @@ The Khmer calendar is a sophisticated lunisolar system that combines lunar phase
 The Khmer calendar has **14 possible months** per year:
 
 **Regular Months** (12 months):
-- មិគសិរ, បុស្ស, មាឃ, ផល្គុន, ចេត្រ, ពិសាខ, ជេស្ឋ, អាសាឍ, ស្រាពណ៍, ភទ្របទ, អស្សុជ, កត្តិក
+- មិគសិរ, បុស្ស, មាឃ, ផល្គុន, ចេត្រ, ពិសាខ, ជេស្ឋ, អាសាឍ, ស្រាពណ៍, ភទ្របទ, អស្សុជ, កត្ដិក
 
 **Leap Months** (occur in leap years):
 - បឋមាសាឍ (first អាសាឍ)

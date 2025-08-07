@@ -456,8 +456,8 @@ final class KhmerCalculator
             case Constants::LUNAR_MONTHS['ភទ្របទ']:
                 return Constants::LUNAR_MONTHS['អស្សុជ'];
             case Constants::LUNAR_MONTHS['អស្សុជ']:
-                return Constants::LUNAR_MONTHS['កត្តិក'];
-            case Constants::LUNAR_MONTHS['កត្តិក']:
+                return Constants::LUNAR_MONTHS['កត្ដិក'];
+            case Constants::LUNAR_MONTHS['កត្ដិក']:
                 return Constants::LUNAR_MONTHS['មិគសិរ'];
             case Constants::LUNAR_MONTHS['បឋមាសាឍ']:
                 return Constants::LUNAR_MONTHS['ទុតិយាសាឍ'];

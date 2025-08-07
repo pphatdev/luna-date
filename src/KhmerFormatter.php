@@ -25,7 +25,7 @@ class KhmerFormatter
     /**
      * Convert Arabic numerals to Khmer numerals
      */
-    private const LUNAR_MONTHS = ["មិគសិរ", "បុស្ស", "មាឃ", "ផល្គុន", "ចេត្រ", "ពិសាខ", "ជេស្ឋ", "អាសាឍ", "ស្រាពណ៍", "ភទ្របទ", "អស្សុជ", "កត្តិក", "បឋមាសាឍ", "ទុតិយាសាឍ"];
+    private const LUNAR_MONTHS = ["មិគសិរ", "បុស្ស", "មាឃ", "ផល្គុន", "ចេត្រ", "ពិសាខ", "ជេស្ឋ", "អាសាឍ", "ស្រាពណ៍", "ភទ្របទ", "អស្សុជ", "កត្ដិក", "បឋមាសាឍ", "ទុតិយាសាឍ"];
 
     /**
      * Convert Arabic numerals to Khmer numerals
