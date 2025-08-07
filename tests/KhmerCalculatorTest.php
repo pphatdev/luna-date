@@ -1,6 +1,5 @@
 <?php
 
-// declare(strict_types=1);
 
 namespace PPhatDev\LunarDate\Tests;
 
@@ -9,7 +8,6 @@ use PPhatDev\LunarDate\KhmerCalculator;
 use PPhatDev\LunarDate\Constants;
 use DateTime;
 use InvalidArgumentException;
-use RuntimeException;
 
 /**
  * Comprehensive test suite for KhmerCalculator
