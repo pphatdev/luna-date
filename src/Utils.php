@@ -1,8 +1,8 @@
 <?php
-
 namespace PPhatDev\LunarDate;
 
 use DateTime;
+use Exception;
 
 /**
  * Utility class with helper functions for Khmer date operations
@@ -133,7 +133,7 @@ class Utils
                 'date' => $khmerNewYear->format('Y-m-d'),
                 'khmer_date' => (new KhmerDate($khmerNewYear))->toLunarDate()
             ];
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
             // Handle calculation errors gracefully
         }
 
