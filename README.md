@@ -1,38 +1,33 @@
 # Lunar Date - PHP Khmer Calendar Library
 
+[![CI](https://github.com/pphatdev/lunar-date/workflows/CI/badge.svg)](https://github.com/pphatdev/lunar-date/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![PHP Version](https://img.shields.io/badge/PHP-%3E%3D7.4-blue.svg)](https://php.net)
+[![Latest Stable Version](https://img.shields.io/packagist/v/pphatdev/lunar-date.svg)](https://packagist.org/packages/pphatdev/lunar-date)
+[![Total Downloads](https://img.shields.io/packagist/dt/pphatdev/lunar-date.svg)](https://packagist.org/packages/pphatdev/lunar-date)
 
 A comprehensive PHP library for converting between Gregorian and Khmer (Cambodian) calendar dates. This is a faithful port of the popular JavaScript [momentkh](https://github.com/ThyrithSor/momentkh) library by ThyrithSor, enhanced with modern PHP best practices and comprehensive testing.
 
 ## Features
 
 ### Core Calendar Functions
-- ✅ **Gregorian to Khmer Lunar Date Conversion** - Full bidirectional date conversion
-- ✅ **Buddhist Era (BE) Year Support** - Accurate BE year calculations with conversion utilities
-- ✅ **Khmer New Year Calculations** - Precise calculation of ចូលឆ្នាំខ្មែរ moments using Soriyatra Lerng Sak
+- ✅ **Gregorian to Khmer Lunar Date Conversion** - Full bidirectional date conversion with lunar calendar support
+- ✅ **Buddhist Era (BE) Year Support** - Accurate BE year calculations and conversion utilities
+- ✅ **Khmer New Year Calculations** - Precise calculation of Khmer New Year moments using advanced algorithms
 - ✅ **Animal Year System** - Complete 12-year animal cycle (ឆ្នាំសត្វ) support
 - ✅ **Era Year System** - 10-year era cycle (ស័ក) calculations
-- ✅ **Leap Year Support** - Leap month (អធិកមាស) and leap day (ចន្ទ្រាធិមាស) handling
+- ✅ **Leap Year Support** - Accurate lunar calendar leap year handling
 
 ### Formatting & Localization
 - ✅ **Flexible Date Formatting** - Customizable output with Khmer formatting tokens
 - ✅ **Number Conversion** - Bidirectional Arabic ↔ Khmer numeral conversion
 - ✅ **Khmer Text Support** - Full Unicode Khmer character support and validation
 - ✅ **Multiple Calendar Systems** - Solar and lunar month name support
-- ✅ **Time Formatting** - Khmer time formatting with 12/24-hour support
-
-### Advanced Features
-- ✅ **Buddhist Holiday Calculator** - Calculate major Buddhist holidays for any year
-- ✅ **Season Information** - Lunar month-based season calculations
-- ✅ **Date Range Operations** - Find lunar day occurrences and date ranges
-- ✅ **Era Conversion Utilities** - Convert between AD, BE, and Jolak Sakaraj (JS) eras
-- ✅ **Calendar Validation** - Validate Khmer dates and check calendar constraints
 
 ### Developer Experience
 - ✅ **Modern PHP (7.4+)** - Strict types, comprehensive type hints, and modern syntax
 - ✅ **Comprehensive Testing** - Full PHPUnit test suite with edge case coverage
-- ✅ **Static Analysis** - PHPStan level 8 compliance for maximum code quality
+- ✅ **Static Analysis** - PHPStan ready with high code quality standards
 - ✅ **PSR-12 Standards** - Follows PHP coding standards and best practices
 - ✅ **Rich Documentation** - Detailed PHPDoc annotations and usage examples
 
@@ -70,6 +65,10 @@ echo $date->toLunarDate();
 // Custom formatting
 echo $date->toLunarDate('dN ថ្ងៃW ខែm ព.ស. b');
 // Output: ១២កើត ថ្ងៃអង្គារ ខែអស្សុជ ព.ស. ២៥៣៩
+
+// Khmer Gregorian date
+echo $date->toKhmerDate();
+// Output: ២៤ ខែកញ្ញា ឆ្នាំ១៩៩៦
 ```
 
 ## API Reference
@@ -98,6 +97,42 @@ $khmerDate = new KhmerDate(1705315800);
 // Static factory methods
 $khmerDate = KhmerDate::create('2024-01-15');
 $khmerDate = KhmerDate::createFromDateTime($dateTime);
+```
+
+#### Core Methods
+
+```php
+$date = new KhmerDate('2024-01-15');
+
+// Lunar date conversion
+echo $date->toLunarDate();                    // Full Khmer lunar date
+echo $date->toLunarDate('dN ខែm ព.ស. b');     // Custom format
+
+// Khmer Gregorian date
+echo $date->toKhmerDate();                    // Khmer numerals with Gregorian calendar
+
+// Calendar components
+echo $date->khDay();      // Lunar day (0-29): 8
+echo $date->khMonth();    // Lunar month index: 2  
+echo $date->khYear();     // Buddhist Era year: 2567
+
+// Standard DateTime operations
+echo $date->format('Y-m-d H:i:s');           // Standard formatting
+echo $date->getTimestamp();                  // Unix timestamp
+$copy = $date->copy();                       // Create copy
+```
+
+#### Date Arithmetic
+
+```php
+$date = new KhmerDate('2024-01-15');
+
+// Add/subtract time intervals
+$futureDate = $date->add('P1M');      // Add 1 month
+$pastDate = $date->subtract('P7D');   // Subtract 7 days
+
+// The original date object is modified, use copy() if needed
+$newDate = $date->copy()->add('P1Y'); // Add 1 year to copy
 ```
 
 #### Core Methods
@@ -188,42 +223,46 @@ $eraYears = KhmerDate::getEraYearNames();
 ```php
 use PPhatDev\LunarDate\Utils;
 
+// Parse Khmer date string
+$parsed = Utils::parseKhmerDate('១២កើត ខែអស្សុជ ព.ស. ២៥៦៧');
+var_dump($parsed); // Returns parsed date components
+
+// Get Khmer month date range
+$monthRange = Utils::getKhmerMonthRange(5, 2567); // ពិសាខ month in BE 2567
+foreach ($monthRange as $day) {
+    echo "Day {$day['day']}: {$day['lunar']} - {$day['gregorian']}\n";
+}
+
+// Find specific lunar days in a year
+$fullMoons = Utils::findLunarDayOccurrences(15, 0, 2024); // All 15កើត in 2024
+$newMoons = Utils::findLunarDayOccurrences(15, 1, 2024);  // All 15រោច in 2024
+
+// Date difference in Khmer terms
+$date1 = new KhmerDate('2024-01-01');
+$date2 = new KhmerDate('2024-12-31');
+$diff = Utils::diffInKhmer($date1, $date2);
+echo "Difference: {$diff['days']} days, {$diff['months']} months";
+
 // Buddhist holidays for a specific year
 $holidays = Utils::getBuddhistHolidays(2024);
 foreach ($holidays as $holiday) {
     echo "{$holiday['name']}: {$holiday['date']}\n";
-    // Output: Visakha Bochea: 2024-05-22
 }
-
-// Season information based on lunar calendar
-$date = new KhmerDate('2024-07-15');
-$season = Utils::getSeason($date);
-echo $season['name'];        // រដូវវស្សា (Rainy Season)
-echo $season['name_en'];     // Rainy Season
-echo $season['description']; // Season description
 
 // Era conversion utilities
 $beYear = Utils::convertEra(2024, 'AD', 'BE');    // 2567
 $adYear = Utils::convertEra(2567, 'BE', 'AD');    // 2024
 $jsYear = Utils::convertEra(2024, 'AD', 'JS');    // 1385
 
-// Find specific lunar days in a year
-$fullMoons = Utils::findLunarDayOccurrences(15, 0, 2024); // All 15កើត in 2024
-$newMoons = Utils::findLunarDayOccurrences(15, 1, 2024);  // All 15រោច in 2024
-
-// Get month date ranges
-$monthRange = Utils::getKhmerMonthRange(5, 2567); // ពិសាខ month in BE 2567
-// Returns array of all days with lunar day information
-
 // Date validation
 $isValid = Utils::isValidKhmerDate(15, 5, 2567); // true
 $isValid = Utils::isValidKhmerDate(31, 5, 2567); // false (invalid lunar day)
 
-// Date difference in Khmer terms
-$date1 = new KhmerDate('2024-01-01');
-$date2 = new KhmerDate('2024-12-31');
-$diff = Utils::diffInKhmer($date1, $date2);
-echo "Difference: {$diff['days']} days";
+// Season information based on lunar calendar
+$date = new KhmerDate('2024-07-15');
+$season = Utils::getSeason($date);
+echo $season['name'];        // រដូវវស្សា (Rainy Season)
+echo $season['name_en'];     // Rainy Season
 ```
 
 ### Formatting System
@@ -286,17 +325,21 @@ $date = new DateTime('2024-01-15');
 echo $formatter->formatDate($date, 'full');      // Full Khmer Gregorian date
 echo $formatter->getDayName($date);              // អាទិត្យ
 echo $formatter->getMonthName($date);            // មករា
+echo $formatter->getLunarMonthName(5);           // ពិសាខ
 
-// Currency formatting
+// Currency and time formatting
 echo $formatter->formatCurrency(1500.50);       // ១,៥០០.៥០ រៀល
-
-// Time formatting
 echo $formatter->formatTime($date, true);       // 24-hour format
 echo $formatter->formatTime($date, false);      // 12-hour format
 
-// Text validation
+// Text validation and utilities
 $isKhmer = $formatter->isKhmerText('ភាសាខ្មែរ');  // true
 $isKhmer = $formatter->isKhmerText('English');   // false
+echo $formatter->formatOrdinal(21);             // ២១
+
+// Format lunar date data
+$lunarData = KhmerDate::findLunarDate(new DateTime('2024-01-15'));
+echo $formatter->formatLunarDate($lunarData, 'full');
 ```
 
 ## Comparison with Original MomentKH
@@ -385,7 +428,7 @@ The library implements complex calculations including:
 // Find all full moon days (15កើត) in 2024
 $fullMoons = Utils::findLunarDayOccurrences(15, 0, 2024);
 foreach ($fullMoons as $fullMoon) {
-    echo "Full Moon: {$fullMoon['gregorian']} - {$fullMoon['khmer']}\n";
+    echo "Full Moon: {$fullMoon['date']} - {$fullMoon['khmer']}\n";
 }
 
 // Find all new moon days (15រោច) in 2024  
@@ -400,11 +443,6 @@ $holidays = Utils::getBuddhistHolidays(2024);
 foreach ($holidays as $holiday) {
     echo "{$holiday['name']}: {$holiday['date']} ({$holiday['type']})\n";
 }
-
-// Example output:
-// Visakha Bochea: 2024-05-22 (major)
-// Royal Ploughing Ceremony: 2024-05-09 (cultural)
-// Pchum Ben: 2024-10-02 (ancestor)
 ```
 
 ### Season Information
@@ -415,12 +453,6 @@ $season = Utils::getSeason($date);
 
 echo "Season: {$season['name']} ({$season['name_en']})\n";
 echo "Description: {$season['description']}\n";
-echo "Months: " . implode(', ', $season['months']) . "\n";
-
-// Output:
-// Season: រដូវវស្សា (Rainy Season)
-// Description: The monsoon season with heavy rainfall
-// Months: ស្រាពណ៍, ភទ្របទ, អស្សុជ
 ```
 
 ### Era Conversion Examples
@@ -434,10 +466,9 @@ $jsYear = Utils::convertEra($currentYear, 'AD', 'JS');    // 1385
 
 // Convert back
 $adFromBE = Utils::convertEra($beYear, 'BE', 'AD');       // 2024
-$adFromJS = Utils::convertEra($jsYear, 'JS', 'AD');       // 2024
 
 echo "Gregorian: $currentYear\n";
-echo "Buddhist Era: $beYear\n"; 
+echo "Buddhist Era: $beYear\n";
 echo "Jolak Sakaraj: $jsYear\n";
 ```
 
@@ -448,13 +479,12 @@ echo "Jolak Sakaraj: $jsYear\n";
 $monthData = Utils::getKhmerMonthRange(5, 2567); // ពិសាខ month, BE 2567
 
 foreach ($monthData as $day) {
-    echo "Day {$day['day']}: {$day['formatted']} ({$day['moonStatus']})\n";
+    echo "Day {$day['day']}: {$day['lunar']} - {$day['gregorian']}\n";
 }
 
 // Validate Khmer dates
 $isValid = Utils::isValidKhmerDate(15, 5, 2567);  // true - valid full moon
 $isValid = Utils::isValidKhmerDate(31, 5, 2567);  // false - invalid lunar day
-$isValid = Utils::isValidKhmerDate(15, 15, 2567); // false - invalid month
 ```
 
 ## Development & Testing
@@ -473,6 +503,7 @@ composer install
 php examples/demo.php
 php examples/momentkh_examples.php
 php examples/new_year.php
+php examples/current_be_year.php
 ```
 
 ### Quality Assurance
@@ -482,17 +513,16 @@ This library maintains high code quality standards:
 ```bash
 # Run complete test suite
 composer test
+# or
+make test
 
 # Generate code coverage report
 composer test:coverage
+# or
+make coverage
 
-# Run all quality checks (tests, coding standards, static analysis)
-composer quality
-
-# Individual quality tools
-composer cs-check        # Check PSR-12 coding standards
-composer cs-fix          # Fix coding standard violations
-composer stan            # Run PHPStan static analysis (level 8)
+# Run all quality checks
+make quality
 ```
 
 ### Testing Coverage
@@ -500,14 +530,13 @@ composer stan            # Run PHPStan static analysis (level 8)
 The library includes comprehensive test coverage:
 
 - **Unit Tests**: All classes and methods tested with PHPUnit
-- **Integration Tests**: End-to-end calendar conversion testing
+- **Integration Tests**: End-to-end calendar conversion testing  
 - **Edge Case Testing**: Boundary conditions and error scenarios
-- **Regression Testing**: Known calculation values verified
-- **Performance Tests**: Efficiency of core algorithms
+- **Simple Test**: Basic functionality verification with `tests/simple_test.php`
 
 ### Code Quality Metrics
 
-- ✅ **PHPStan Level 8**: Strictest static analysis
+- ✅ **CI/CD Pipeline**: GitHub Actions with multi-version PHP testing (7.4, 8.0, 8.1, 8.2, 8.3)
 - ✅ **PSR-12 Compliance**: Modern PHP coding standards
 - ✅ **Type Safety**: Comprehensive type hints and strict types
 - ✅ **Error Handling**: Proper exception handling and validation
@@ -517,23 +546,27 @@ The library includes comprehensive test coverage:
 
 ```
 src/
-├── KhmerDate.php           # Main date class
-├── KhmerFormatter.php      # Formatting and localization
-├── KhmerCalculator.php     # Core calendar calculations
-├── SoriyatraLerngSak.php   # New Year calculations
-├── Utils.php               # Utility functions
-└── Constants.php           # Calendar constants
+├── KhmerDate.php           # Main date class with conversion methods
+├── KhmerFormatter.php      # Formatting and localization utilities
+├── KhmerCalculator.php     # Core calendar calculations and algorithms
+├── SoriyatraLerngSak.php   # Khmer New Year calculations
+├── Utils.php               # Utility functions and helper methods
+└── Constants.php           # Calendar constants and definitions
 
 examples/
-├── demo.php               # Basic usage examples
+├── demo.php               # Basic usage examples and demonstrations
 ├── momentkh_examples.php  # MomentKH compatibility demos
-└── new_year.php          # New Year calculation examples
+├── new_year.php          # Khmer New Year calculation examples
+└── current_be_year.php   # Buddhist Era year examples
 
 tests/
 ├── KhmerDateTest.php      # Main class tests
 ├── KhmerCalculatorTest.php # Calculation tests  
 ├── ConstantsTest.php      # Constants validation
 └── simple_test.php        # Basic functionality test
+
+.github/workflows/
+└── ci.yml                 # GitHub Actions CI configuration
 ```
 
 ## Contributing
@@ -550,10 +583,13 @@ We welcome contributions! Please feel free to submit a Pull Request. For major c
 
 ```bash
 # Before submitting PR
-composer quality    # Run all quality checks
-composer test       # Ensure all tests pass
-composer cs-fix     # Fix any style issues
+make quality     # Run all quality checks
+composer test    # Ensure all tests pass
 ```
+
+### Development Workflow
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for detailed contribution guidelines.
 
 ### Development Priorities
 
@@ -561,11 +597,10 @@ composer cs-fix     # Fix any style issues
 - **Extended Formatting**: More formatting options and tokens
 - **Historical Accuracy**: Enhance historical date accuracy
 - **Documentation**: Expand examples and use cases
-- **Internationalization**: Support for additional languages
 
 ## Requirements
 
-- **PHP 7.4+**: Modern PHP with strict types support
+- **PHP 7.4+**: Modern PHP with type hints support
 - **No External Dependencies**: Uses only PHP standard library
 - **Composer**: For autoloading and dependency management
 
@@ -594,10 +629,10 @@ Special appreciation to ThyrithSor for creating the foundational momentkh librar
 
 ## Support
 
-- **Documentation**: This README and PHPDoc comments
+- **Documentation**: This README and inline PHPDoc comments
 - **Examples**: Check the `examples/` directory for usage patterns
-- **Issues**: Report bugs and request features via GitHub Issues
-- **Discussions**: Use GitHub Discussions for questions and community support
+- **Issues**: Report bugs and request features via [GitHub Issues](https://github.com/pphatdev/lunar-date/issues)
+- **Discussions**: Use [GitHub Discussions](https://github.com/pphatdev/lunar-date/discussions) for questions and community support
 
 ---
 
