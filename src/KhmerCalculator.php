@@ -315,7 +315,7 @@ final class KhmerCalculator
     public static function getBEYear(DateTime $dateTime): int
     {
         $visakhaBochea = self::getVisakhaBochea((int)$dateTime->format('Y'));
-        if ($dateTime >= $visakhaBochea) {
+        if ($dateTime > $visakhaBochea) {
             return (int)$dateTime->format('Y') + 544;
         } else {
             return (int)$dateTime->format('Y') + 543;
